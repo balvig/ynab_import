@@ -6,5 +6,5 @@ require "ynab_import/csv/epos"
 
 module YnabImport
   Converter.new("/Users/jens/Downloads/poster.csv", Csv::Nordea).convert!
-  #Converter.new("/Users/jens/Downloads/20160726_UseHistoryReference.csv", Csv::Epos).convert!
+  # Converter.new("/Users/jens/Downloads/20160726_UseHistoryReference.csv", Csv::Epos).convert!
 end

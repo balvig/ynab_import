@@ -34,7 +34,7 @@ module YnabImport
       end
 
       def output_csv
-        CSV.read(@output_path, headers: true).to_a
+        CSV.read(@output_path, headers: true, encoding: "UTF-8").to_a
       end
 
       def remove_input_file
