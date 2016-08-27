@@ -14,7 +14,7 @@ module YnabImport
     def convert!
       rewrite_csv
       print_preview
-      # remove_input_file
+      remove_input_file
     end
 
     private
