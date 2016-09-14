@@ -15,6 +15,8 @@ module YnabImport
       rewrite_csv
       print_preview
       remove_input_file
+    rescue Errno::ENOENT
+      puts "Couldn't find file #{@input_path}"
     end
 
     private
