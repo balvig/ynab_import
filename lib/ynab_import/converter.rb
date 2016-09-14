@@ -25,7 +25,7 @@ module YnabImport
         file = File.readlines(@input_path, encoding: @rewriter::ENCODING)
         CSV.open(@output_path, "wb") do |output|
           output << %w{ Date Payee Category Memo Outflow Inflow }
-          file[2..-1].each do |row|
+          file.each do |row|
             output << @rewriter.new(row).to_ynab
           end
         end
