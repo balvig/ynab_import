@@ -15,11 +15,11 @@ module YnabImport
         end
 
         def payee
-          input[1].gsub('Dankort-nota ','').gsub(/[\s\d]+$/,'').squeeze(' ')
+          input[1].to_s.gsub('Dankort-nota ','').gsub(/[\s\d]+$/,'').squeeze(' ')
         end
 
         def memo
-          input[3] + " DKK"
+          input[3].to_s + " DKK"
         end
 
         def transaction
@@ -27,7 +27,7 @@ module YnabImport
         end
 
         def raw_transaction
-          input[3].delete('.').gsub(',','.').to_f
+          input[3].to_s.delete('.').gsub(',','.').to_f
         end
     end
   end
