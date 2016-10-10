@@ -8,8 +8,15 @@ require "ynab_import/csv/uc"
 require "ynab_import/csv/vpass"
 
 module YnabImport
-  Converter.new("/Users/jens/Downloads/poster.csv", Csv::Nordea, "nordea.csv").convert!
-  Converter.new("/Users/jens/Downloads/UC_1609.csv", Csv::Uc, "uc.csv").convert!
-  Converter.new("/Users/jens/Downloads/20160827_UseHistoryReference.csv", Csv::Epos, "epos.csv").convert!
-  Converter.new("/Users/jens/Downloads/201609.csv", Csv::Vpass, "ana.csv").convert!
+  Dir.glob("/Users/jens/Downloads/*.csv").each do |file|
+    if file.include? "poster"
+      Converter.new(file, Csv::Nordea, "nordea.csv").convert!
+    elsif file.include? "UC"
+      Converter.new(file, Csv::Uc, "uc.csv").convert!
+    elsif file.include? "UseHistoryReference"
+      Converter.new(file, Csv::Epos, "epos.csv").convert!
+    else
+      Converter.new(file, Csv::Vpass, "ana.csv").convert!
+    end
+  end
 end
