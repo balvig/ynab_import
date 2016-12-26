@@ -14,11 +14,23 @@ module YnabImport
         end
 
         def memo
-          input[10].to_s + input[11].to_s
+          if regular_version?
+            input[10].to_s + input[11].to_s
+          else
+            input[6]
+          end
         end
 
         def transaction
-          -input[6].to_i
+          if regular_version?
+            -input[6].to_i
+          else
+            -input[5].to_i
+          end
+        end
+
+        def regular_version?
+          input[5].to_s.start_with?("'")
         end
     end
   end

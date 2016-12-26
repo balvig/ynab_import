@@ -10,13 +10,13 @@ require "ynab_import/csv/vpass"
 module YnabImport
   Dir.glob("/Users/jens/Downloads/*.csv").each do |file|
     if file.include? "poster"
-      Converter.new(file, Csv::Nordea, "nordea.csv").convert!
+      Converter.new(file, Csv::Nordea).convert!
     elsif file.include? "UC"
-      Converter.new(file, Csv::Uc, "uc.csv").convert!
+      Converter.new(file, Csv::Uc).convert!
     elsif file.include? "UseHistoryReference"
-      Converter.new(file, Csv::Epos, "epos.csv").convert!
+      Converter.new(file, Csv::Epos).convert!
     else
-      Converter.new(file, Csv::Vpass, "ana.csv").convert!
+      Converter.new(file, Csv::Vpass).convert!
     end
   end
 end
