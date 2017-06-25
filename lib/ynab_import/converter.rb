@@ -4,6 +4,8 @@ require "terminal-table"
 
 module YnabImport
   class Converter
+    COLUMNS = %w(Date Payee Category Memo Outflow Inflow)
+
     def initialize(input_path)
       @input_path = input_path
     end
@@ -11,8 +13,6 @@ module YnabImport
     def convert
       rewrite_csv
       print_preview
-    rescue Errno::ENOENT
-      puts "Couldn't find file #{input_path}"
     end
 
     private
@@ -20,15 +20,18 @@ module YnabImport
       attr_reader :input_path
 
       def rewrite_csv
-        file = File.readlines(input_path, encoding: rewriter::ENCODING)
         CSV.open(output_path, "wb") do |output|
-          output << %w{ Date Payee Category Memo Outflow Inflow }
-          file.each do |row|
+          output << COLUMNS
+          input_lines.each do |row|
             output << rewriter.new(row).to_ynab
           end
         end
       rescue Encoding::InvalidByteSequenceError => e
         puts e.message
+      end
+
+      def input_lines
+        @_input_lines ||= File.readlines(input_path, encoding: rewriter::ENCODING)
       end
 
       def print_preview
@@ -40,11 +43,7 @@ module YnabImport
       end
 
       def output_path
-        "#{rewriter_name}.csv"
-      end
-
-      def rewriter_name
-        rewriter.to_s.split(":").last.downcase
+        "#{rewriter.name}.csv"
       end
 
       def rewriter

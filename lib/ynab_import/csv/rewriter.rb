@@ -3,6 +3,10 @@ module YnabImport
     class Rewriter
       ENCODING = "ISO-8859-1:UTF-8"
 
+      def self.name
+        to_s.split(":").last.downcase
+      end
+
       def initialize(row)
         @row = row
       end
@@ -13,8 +17,10 @@ module YnabImport
 
       private
 
+        attr_reader :row
+
         def input
-          @input ||= CSV.parse(@row, col_sep: col_sep).first
+          @_input ||= CSV.parse(row, col_sep: col_sep).first
         end
 
         def col_sep
