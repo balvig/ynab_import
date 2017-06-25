@@ -1,4 +1,4 @@
-require "Csv"
+require "csv"
 
 module YnabImport
   module Csv

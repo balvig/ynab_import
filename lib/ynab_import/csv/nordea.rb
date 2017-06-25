@@ -1,5 +1,4 @@
 require "exchange"
-require "pry"
 
 module YnabImport
   module Csv
