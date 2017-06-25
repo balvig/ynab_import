@@ -9,6 +9,7 @@ end
 
 post "/convert" do
   content_type "text/csv"
+  attachment "converted_#{original_filename}"
 
   FileUtils.cp uploaded_file.path, tempfile
 
@@ -21,10 +22,14 @@ private
    YnabImport::Converter.new(tempfile.path).convert
   end
 
+  def original_filename
+    params[:file][:filename]
+  end
+
   def uploaded_file
     params[:file][:tempfile]
   end
 
   def tempfile
-    @_tempfile ||= Tempfile.new(params[:file][:filename])
+    @_tempfile ||= Tempfile.new(original_filename)
   end

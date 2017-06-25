@@ -1,12 +1,37 @@
 <html>
   <head>
     <title>YNAB CSV concerter</title>
+    <style type="text/css" media="all">
+      body {
+        font-size: 18px;
+      }
+
+      .title {
+        margin: 0 0 1em;
+        font-size: 1.3em;
+      }
+
+      .upload-form {
+        text-align: center;
+        width: 400px;
+        margin: 100px auto;
+        padding: 2em;
+      }
+
+      .file-input {
+        font-size: 1em;
+        border: 2px solid #DDD;
+        background: #EEE;
+        padding: 0.5em;
+        border-radius: 0.3em;
+      }
+    </style>
   </head>
   <body>
-    <h1>Upload CSV</h1>
 
-    <form action="/convert" method="POST" enctype="multipart/form-data" id="form">
-      <input type="file" name="file" id="input">
+    <form class="upload-form" action="/convert" method="POST" enctype="multipart/form-data" id="form">
+      <h1 class="title">Upload CSV</h1>
+      <input type="file" name="file" id="input" class="file-input">
       <input type="submit" value="Upload" id="button">
     </form>
 
