@@ -34,4 +34,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "terminal-table", "~> 1.6"
   spec.add_dependency "exchange", "~> 1.2"
+  spec.add_dependency "puma", "~> 3.0"
+  spec.add_dependency "sinatra", "~> 1.4"
 end

@@ -1,11 +1,9 @@
+require "Csv"
+
 module YnabImport
   module Csv
     class Rewriter
       ENCODING = "ISO-8859-1:UTF-8"
-
-      def self.name
-        to_s.split(":").last.downcase
-      end
 
       def initialize(row)
         @row = row

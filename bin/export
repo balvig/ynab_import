@@ -2,7 +2,14 @@
 
 require "bundler/setup"
 require "ynab_import"
+require "ynab_import/csv_writer"
+require "ynab_import/csv_preview"
 
-Dir.glob("#{Dir.home}/Downloads/*.csv").each do |file|
-  YnabImport::Converter.new(file).convert
+module YnabImport
+  Dir.glob("#{Dir.home}/Downloads/*.csv").each do |path|
+    output_path = "converted_" + path.split("/").last
+    data = Converter.new(path).convert
+    CsvPreview.new(data).show
+    CsvWriter.new(data, output_path: output_path).write
+  end
 end
