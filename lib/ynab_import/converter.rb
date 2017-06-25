@@ -4,22 +4,20 @@ require "terminal-table"
 
 module YnabImport
   class Converter
-    def initialize(input_path, rewriter)
+    def initialize(input_path)
       @input_path = input_path
-      @rewriter = rewriter
     end
 
-    def convert!
+    def convert
       rewrite_csv
       print_preview
-      # remove_input_file
     rescue Errno::ENOENT
       puts "Couldn't find file #{input_path}"
     end
 
     private
 
-      attr_reader :input_path, :rewriter
+      attr_reader :input_path
 
       def rewrite_csv
         file = File.readlines(input_path, encoding: rewriter::ENCODING)
@@ -49,8 +47,16 @@ module YnabImport
         rewriter.to_s.split(":").last.downcase
       end
 
-      def remove_input_file
-        FileUtils.rm(input_path)
+      def rewriter
+        if input_path.include? "poster"
+          Csv::Nordea
+        elsif input_path.include? "UC"
+          Csv::Uc
+        elsif input_path.include? "UseHistoryReference"
+          Csv::Epos
+        else
+          Csv::Vpass
+        end
       end
   end
 end

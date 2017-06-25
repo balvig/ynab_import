@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "ynab_import"
+
+Dir.glob("#{Dir.home}/Downloads/*.csv").each do |file|
+  YnabImport::Converter.new(file).convert
+end
