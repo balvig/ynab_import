@@ -11,7 +11,7 @@ module YnabImport
     end
 
     def convert
-      rewrite_csv
+      save_rewritten_csv
       print_preview
     end
 
@@ -19,15 +19,26 @@ module YnabImport
 
       attr_reader :input_path
 
-      def rewrite_csv
-        CSV.open(output_path, "wb") do |output|
-          output << COLUMNS
-          input_lines.each do |row|
-            output << rewriter.new(row).to_ynab
-          end
-        end
+      def save_rewritten_csv
+        File.write(output_path, output_csv)
       rescue Encoding::InvalidByteSequenceError => e
         puts e.message
+      end
+
+      def output_csv
+        rewritten_data.map(&:to_csv).join
+      end
+
+      def rewritten_data
+        @_rewritten_data ||= rewrite_data
+      end
+
+      def rewrite_data
+        data = [COLUMNS]
+        input_lines.each do |row|
+          data << rewriter.new(row).to_ynab
+        end
+        data
       end
 
       def input_lines
@@ -35,11 +46,7 @@ module YnabImport
       end
 
       def print_preview
-        puts Terminal::Table.new(rows: csv_output)
-      end
-
-      def csv_output
-        CSV.read(output_path, headers: true, encoding: "UTF-8").to_a
+        puts Terminal::Table.new(rows: rewritten_data)
       end
 
       def output_path
