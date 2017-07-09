@@ -2,6 +2,10 @@
   <head>
     <title>YNAB CSV concerter</title>
     <style type="text/css" media="all">
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         font-size: 18px;
         font-family: monospace;
@@ -14,16 +18,19 @@
 
       .upload-form {
         text-align: center;
-        width: 400px;
-        margin: 100px auto;
+        width: 80%;
+        height: 90%;
+        margin: 0 auto;
         padding: 2em;
       }
 
       .file-input {
         font-size: 1em;
-        border: 2px solid #DDD;
+        border: 2px dotted #DDD;
         background: #EEE;
-        padding: 0.5em;
+        padding: 1em;
+        height: 100%;
+        width: 100%;
         border-radius: 0.3em;
       }
     </style>
