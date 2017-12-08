@@ -4,6 +4,7 @@ require "fileutils"
 require "ynab_import/csv/rewriter"
 require "ynab_import/csv/nordea"
 require "ynab_import/csv/epos"
+require "ynab_import/csv/shinsei"
 require "ynab_import/csv/uc"
 require "ynab_import/csv/vpass"
 
@@ -42,6 +43,8 @@ module YnabImport
           Csv::Uc
         elsif input_path.include? "UseHistoryReference"
           Csv::Epos
+        elsif input_path =~ /\d{15}.csv/
+          Csv::Shinsei
         else
           Csv::Vpass
         end
