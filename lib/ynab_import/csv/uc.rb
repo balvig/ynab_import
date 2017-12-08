@@ -14,11 +14,11 @@ module YnabImport
         end
 
         def memo
-          input[7]
+          input[8]
         end
 
         def transaction
-          -input[5].to_i
+          -input[7].to_i
         end
     end
   end
