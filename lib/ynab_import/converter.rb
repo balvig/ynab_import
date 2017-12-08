@@ -29,7 +29,7 @@ module YnabImport
         input_lines.each do |row|
           data << rewriter.new(row).to_ynab
         end
-        data
+        data.compact
       end
 
       def input_lines

@@ -10,6 +10,7 @@ module YnabImport
       end
 
       def to_ynab
+        return unless valid_data?
         [date, payee, category, memo, outflow, inflow]
       end
 
@@ -19,6 +20,12 @@ module YnabImport
 
         def input
           @_input ||= CSV.parse(row, col_sep: col_sep).first
+        end
+
+        def valid_data?
+          Date.parse(date.to_s)
+        rescue ArgumentError
+          false
         end
 
         def col_sep
