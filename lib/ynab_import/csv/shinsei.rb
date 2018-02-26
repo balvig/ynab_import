@@ -1,20 +1,17 @@
 module YnabImport
   module Csv
     class Shinsei < Rewriter
-      ENCODING = "UTF-16:UTF-8"
+      ENCODING = "UTF-16"
+      COL_SEP = "\t"
 
       private
 
-        def col_sep
-          "\t"
-        end
-
         def date
-          input[0]
+          row[0]
         end
 
         def payee
-          input[2]
+          row[2]
         end
 
         def memo
@@ -22,11 +19,11 @@ module YnabImport
         end
 
         def outflow
-          input[3]
+          row[3]
         end
 
         def inflow
-          input[4]
+          row[4]
         end
     end
   end

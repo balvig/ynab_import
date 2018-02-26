@@ -8,7 +8,11 @@ module YnabImport
     end
 
     def test_uc
-      preview "UC_1711.csv"
+      preview "UC_1712.csv"
+    end
+
+    def test_vpass
+      preview "201803.csv"
     end
 
     private

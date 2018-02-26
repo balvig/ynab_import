@@ -4,6 +4,7 @@ module YnabImport
   module Csv
     class Rewriter
       ENCODING = "ISO-8859-1:UTF-8"
+      COL_SEP = ","
 
       def initialize(row)
         @row = row
@@ -18,18 +19,10 @@ module YnabImport
 
         attr_reader :row
 
-        def input
-          @_input ||= CSV.parse(row, col_sep: col_sep).first
-        end
-
         def valid_data?
           Date.parse(date.to_s)
         rescue ArgumentError
           false
-        end
-
-        def col_sep
-          ","
         end
 
         def category

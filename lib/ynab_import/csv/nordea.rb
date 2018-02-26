@@ -3,22 +3,20 @@ require "exchange"
 module YnabImport
   module Csv
     class Nordea < Rewriter
+      COL_SEP = ";"
+
       private
 
-        def col_sep
-          ";"
-        end
-
         def date
-          input[0]
+          row[0]
         end
 
         def payee
-          input[1].to_s.gsub('Dankort-nota ','').gsub(/[\s\d]+$/,'').squeeze(' ')
+          row[1].to_s.gsub('Dankort-nota ','').gsub(/[\s\d]+$/,'').squeeze(' ')
         end
 
         def memo
-          input[3].to_s + " DKK"
+          row[3].to_s + " DKK"
         end
 
         def transaction
@@ -26,7 +24,7 @@ module YnabImport
         end
 
         def raw_transaction
-          input[3].to_s.delete('.').gsub(',','.').to_f
+          row[3].to_s.delete('.').gsub(',','.').to_f
         end
     end
   end

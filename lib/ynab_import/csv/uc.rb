@@ -1,24 +1,24 @@
 module YnabImport
   module Csv
     class Uc < Rewriter
-      ENCODING = "Shift_JIS:UTF-8"
+      ENCODING = "Shift_JIS"
 
       private
 
         def date
-          input[1]
+          row[1]
         end
 
         def payee
-          input[3]
+          row[3]
         end
 
         def memo
-          input[8]
+          row[8]
         end
 
         def transaction
-          -input[7].to_i
+          -row[7].to_i
         end
     end
   end

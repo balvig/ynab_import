@@ -26,14 +26,20 @@ module YnabImport
 
       def converted_data
         data = [COLUMNS]
-        input_lines.each do |row|
+        csv_rows.each do |row|
           data << rewriter.new(row).to_ynab
         end
         data.compact
       end
 
-      def input_lines
-        @_input_lines ||= File.readlines(input_path, encoding: rewriter::ENCODING)
+      def csv_rows
+        @_csv ||= CSV.parse(read_file, col_sep: rewriter::COL_SEP)
+      end
+
+      def read_file
+        File.read(input_path).
+          force_encoding(rewriter::ENCODING).
+          encode("UTF-8", invalid: :replace, undef: :replace, replace: "?")
       end
 
       def rewriter
