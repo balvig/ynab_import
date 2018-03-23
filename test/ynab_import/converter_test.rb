@@ -15,6 +15,10 @@ module YnabImport
       preview "201803.csv"
     end
 
+    def test_nordea
+      preview "poster.csv"
+    end
+
     private
 
       def preview(file)

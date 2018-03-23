@@ -3,7 +3,7 @@ require "csv"
 module YnabImport
   module Csv
     class Rewriter
-      ENCODING = "ISO-8859-1:UTF-8"
+      ENCODING = "ISO-8859-1"
       COL_SEP = ","
 
       def initialize(row)
