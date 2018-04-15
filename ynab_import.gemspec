@@ -32,8 +32,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "pry"
 
+  spec.add_dependency "google_currency"
   spec.add_dependency "terminal-table", "~> 1.6"
-  spec.add_dependency "exchange", "~> 1.2"
   spec.add_dependency "puma", "~> 3.0"
   spec.add_dependency "sinatra", "~> 2.0"
 end

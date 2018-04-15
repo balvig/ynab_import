@@ -1,4 +1,7 @@
-require "exchange"
+require "money"
+require "money/bank/google_currency"
+Money::Bank::GoogleCurrency.ttl_in_seconds = 86400
+Money.default_bank = Money::Bank::GoogleCurrency.new
 
 module YnabImport
   module Csv
@@ -20,7 +23,11 @@ module YnabImport
         end
 
         def transaction
-          raw_transaction.in(:dkk).to(:jpy).to_f
+          transaction_in_dkk.exchange_to(:JPY)
+        end
+
+        def transaction_in_dkk
+          Money.new(raw_transaction * 100, :DKK)
         end
 
         def raw_transaction
