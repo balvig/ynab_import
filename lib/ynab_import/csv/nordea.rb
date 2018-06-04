@@ -1,7 +1,9 @@
 require "money"
-require "money/bank/google_currency"
-Money::Bank::GoogleCurrency.ttl_in_seconds = 86400
-Money.default_bank = Money::Bank::GoogleCurrency.new
+require "money/bank/open_exchange_rates_bank"
+oxr = Money::Bank::OpenExchangeRatesBank.new
+oxr.app_id = "66c582cad642474fb1db6c1c0b071fcd"
+oxr.update_rates
+Money.default_bank = oxr
 
 module YnabImport
   module Csv
