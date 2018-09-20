@@ -23,6 +23,10 @@ module YnabImport
       preview "poster.csv"
     end
 
+    def test_rakuten
+      preview "RB-torihikimeisai.csv"
+    end
+
     private
 
       def preview(file)

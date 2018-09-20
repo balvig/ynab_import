@@ -4,6 +4,7 @@ require "fileutils"
 require "ynab_import/csv/rewriter"
 require "ynab_import/csv/nordea"
 require "ynab_import/csv/epos"
+require "ynab_import/csv/rakuten"
 require "ynab_import/csv/shinsei"
 require "ynab_import/csv/shinsei_new"
 require "ynab_import/csv/uc"
@@ -54,6 +55,8 @@ module YnabImport
           Csv::Shinsei
         elsif input_path.include?("JPY_CH")
           Csv::ShinseiNew
+        elsif input_path.include?("RB-torihikimeisai")
+          Csv::Rakuten
         else
           Csv::Vpass
         end
