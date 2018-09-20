@@ -6,7 +6,7 @@ module YnabImport
       private
 
         def date
-          row[0]
+          Date.parse(row[0]).to_s
         end
 
         def payee
