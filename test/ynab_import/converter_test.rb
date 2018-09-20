@@ -7,6 +7,10 @@ module YnabImport
       preview "590601000197645.csv"
     end
 
+    def test_shinsei_new
+      preview "JPY_CH_20180920212613.csv"
+    end
+
     def test_uc
       preview "UC_1712.csv"
     end

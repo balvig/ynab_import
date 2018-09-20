@@ -5,6 +5,7 @@ require "ynab_import/csv/rewriter"
 require "ynab_import/csv/nordea"
 require "ynab_import/csv/epos"
 require "ynab_import/csv/shinsei"
+require "ynab_import/csv/shinsei_new"
 require "ynab_import/csv/uc"
 require "ynab_import/csv/vpass"
 
@@ -51,6 +52,8 @@ module YnabImport
           Csv::Epos
         elsif input_path =~ /\d{15}.csv/
           Csv::Shinsei
+        elsif input_path.include?("JPY_CH")
+          Csv::ShinseiNew
         else
           Csv::Vpass
         end
