@@ -16,7 +16,7 @@ module YnabImport
     end
 
     def test_vpass
-      preview "201803.csv"
+      preview "201908.csv"
     end
 
     def test_nordea
