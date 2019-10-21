@@ -3,7 +3,18 @@ module YnabImport
     class Vpass < Rewriter
       ENCODING = "Shift_JIS"
 
+      def to_ynab
+        rewrite_rows_broken_due_to_values_with_commas
+        super
+      end
+
       private
+
+        def rewrite_rows_broken_due_to_values_with_commas
+          if transaction == 0 # (LUTON, BEDS )
+            row[1] += row.delete_at(2)
+          end
+        end
 
         def date
           row[0]
