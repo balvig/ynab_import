@@ -27,7 +27,7 @@ module YnabImport
         end
 
         def transaction_missing?
-          transaction == 0
+          [outflow, inflow].map(&:to_s).all?(&:empty?)
         end
 
         def category

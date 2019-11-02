@@ -8,7 +8,7 @@ module YnabImport
     end
 
     def test_shinsei_new
-      preview "JPY_CH_20180920212613.csv"
+      preview "JPY_CH_20191102172758.csv"
     end
 
     def test_uc
