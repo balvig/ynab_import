@@ -12,7 +12,7 @@ module YnabImport
 
       def to_ynab
         return unless valid_data?
-        raise "Could not find transaction in #{row}" if transaction_missing?
+
         [date, payee, category, memo, outflow, inflow]
       end
 
@@ -24,10 +24,6 @@ module YnabImport
           Date.parse(date.to_s)
         rescue ArgumentError
           false
-        end
-
-        def transaction_missing?
-          [outflow, inflow].map(&:to_s).all?(&:empty?)
         end
 
         def category

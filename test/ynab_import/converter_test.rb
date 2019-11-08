@@ -11,6 +11,10 @@ module YnabImport
       preview "JPY_CH_20191102172758.csv"
     end
 
+    def test_epos
+      preview "20191107_UseHistoryReference.csv"
+    end
+
     def test_uc
       preview "UC_1712.csv"
     end
@@ -24,7 +28,7 @@ module YnabImport
     end
 
     def test_rakuten
-      preview "RB-torihikimeisai.csv"
+      preview "RB-torihikimeisai (1).csv"
     end
 
     private
