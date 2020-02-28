@@ -32,7 +32,7 @@ GEM
     rack (2.0.8)
     rack-protection (2.0.7)
       rack
-    rake (10.5.0)
+    rake (13.0.1)
     sinatra (2.0.7)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -51,7 +51,7 @@ DEPENDENCIES
   bundler (~> 1.12)
   minitest (~> 5.0)
   pry
-  rake (~> 10.0)
+  rake (~> 13.0)
   ynab_import!
 
 RUBY VERSION
