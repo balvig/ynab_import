@@ -9,6 +9,7 @@ module YnabImport
   module Csv
     class Nordea < Rewriter
       COL_SEP = ";"
+      CONVERT_TO_JPY = false
 
       private
 
@@ -25,7 +26,9 @@ module YnabImport
         end
 
         def transaction
-          transaction_in_dkk.exchange_to(:JPY)
+          result = transaction_in_dkk
+          result = result.exchange_to(:JPY) if CONVERT_TO_JPY
+          result
         end
 
         def transaction_in_dkk
