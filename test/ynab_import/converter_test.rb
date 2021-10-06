@@ -27,6 +27,10 @@ module YnabImport
       preview "poster.csv"
     end
 
+    def test_nordea_new
+      preview "Visa-dankort-konto 8965937189 - 2021.10.06 20.43.csv"
+    end
+
     def test_rakuten
       preview "RB-torihikimeisai (1).csv"
     end

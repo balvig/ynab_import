@@ -3,6 +3,7 @@ require "fileutils"
 # Formats
 require "ynab_import/csv/rewriter"
 require "ynab_import/csv/nordea"
+require "ynab_import/csv/nordea_new"
 require "ynab_import/csv/epos"
 require "ynab_import/csv/rakuten"
 require "ynab_import/csv/shinsei"
@@ -47,6 +48,8 @@ module YnabImport
       def rewriter
         if input_path.include? "poster"
           Csv::Nordea
+        elsif input_path.include? "Visa-dankort"
+          Csv::NordeaNew
         elsif input_path.include? "UC"
           Csv::Uc
         elsif input_path.include? "UseHistoryReference"
