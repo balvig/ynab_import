@@ -1,5 +1,5 @@
 require "test_helper"
-require "ynab_import/csv_preview"
+require "support/csv_preview"
 
 module YnabImport
   class ConverterTest < Minitest::Test
