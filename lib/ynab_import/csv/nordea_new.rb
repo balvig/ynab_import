@@ -10,7 +10,7 @@ module YnabImport
         end
 
         def payee
-          row[5]
+          row[5].to_s.gsub('Dankort-nota ','').gsub(/[\s\d]+$/,'').squeeze(' ')
         end
 
         def memo
@@ -18,7 +18,7 @@ module YnabImport
         end
 
         def transaction
-          row[1].to_i
+          row[1].sub(",", ".").to_f
         end
     end
   end
