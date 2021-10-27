@@ -1,6 +1,7 @@
 module YnabImport
   module Csv
     class NordeaNew < Rewriter
+      ENCODING = "UTF-8"
       COL_SEP = ";"
 
       private
