@@ -48,7 +48,7 @@ module YnabImport
       def rewriter
         if input_path.include? "poster"
           Csv::Nordea
-        elsif input_path.include? "Visa-dankort"
+        elsif input_path.include? "konto"
           Csv::NordeaNew
         elsif input_path.include? "UC"
           Csv::Uc
