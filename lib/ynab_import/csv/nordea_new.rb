@@ -21,6 +21,10 @@ module YnabImport
         def transaction
           row[1].sub(",", ".").to_f
         end
+
+        def currency
+          :DKK
+        end
     end
   end
 end
