@@ -36,7 +36,7 @@ module YnabImport
       end
 
       def csv_rows
-        @_csv ||= CSV.parse(read_file, col_sep: rewriter::COL_SEP)
+        @_csv ||= CSV.parse(read_file, col_sep: rewriter::COL_SEP, liberal_parsing: true)
       end
 
       def read_file

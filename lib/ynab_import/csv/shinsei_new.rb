@@ -1,7 +1,7 @@
 module YnabImport
   module Csv
     class ShinseiNew < Rewriter
-      ENCODING = "Shift_JIS"
+      ENCODING = "UTF-8"
 
       private
 
@@ -19,6 +19,10 @@ module YnabImport
 
         def inflow
           row[3]
+        end
+
+        def currency
+          :JPY
         end
     end
   end

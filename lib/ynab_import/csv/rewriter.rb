@@ -14,6 +14,8 @@ module YnabImport
       end
 
       def to_ynab
+        return unless valid_data?
+
         YnabRow.new(
           date: date,
           payee: payee,
@@ -26,6 +28,12 @@ module YnabImport
       private
 
         attr_reader :row, :target_currency
+
+        def valid_data?
+          Date.parse(date.to_s)
+        rescue ArgumentError
+          false
+        end
 
         def memo
           nil
@@ -48,10 +56,9 @@ module YnabImport
         end
 
         def exchange(amount)
-          return unless amount
           return amount if currency == target_currency
 
-          Money.new(amount * 100, currency).exchange_to(target_currency)
+          Money.from_amount(amount.to_f, currency).exchange_to(target_currency)
         end
     end
   end
