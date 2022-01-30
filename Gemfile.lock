@@ -48,7 +48,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.12)
+  bundler (>= 2.2.34)
   minitest (~> 5.0)
   pry
   rake (>= 12.3.3)
@@ -58,4 +58,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   1.17.2
+   2.3.6
