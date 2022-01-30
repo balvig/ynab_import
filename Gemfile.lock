@@ -6,7 +6,6 @@ PATH
       money-open-exchange-rates
       puma (>= 4.3.9, < 5)
       sinatra (~> 2.0)
-      terminal-table (~> 1.6)
 
 GEM
   remote: https://rubygems.org/
@@ -52,6 +51,7 @@ DEPENDENCIES
   minitest (~> 5.0)
   pry
   rake (>= 12.3.3)
+  terminal-table (~> 1.6)
   ynab_import!
 
 RUBY VERSION

@@ -23,10 +23,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", ">= 12.3.3"
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "terminal-table", "~> 1.6"
 
   spec.add_dependency "money", "~> 6.11.0"
   spec.add_dependency "money-open-exchange-rates"
-  spec.add_dependency "terminal-table", "~> 1.6"
   spec.add_dependency "puma", ">= 4.3.9", "< 5"
   spec.add_dependency "sinatra", "~> 2.0"
 end
