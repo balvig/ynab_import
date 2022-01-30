@@ -5,3 +5,4 @@ oxr = Money::Bank::OpenExchangeRatesBank.new
 oxr.app_id = "66c582cad642474fb1db6c1c0b071fcd"
 oxr.update_rates
 Money.default_bank = oxr
+I18n.enforce_available_locales = false
