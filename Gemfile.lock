@@ -4,7 +4,7 @@ PATH
     ynab_import (0.1.0)
       money (= 6.11.0)
       money-open-exchange-rates
-      puma (>= 3, < 5)
+      puma (>= 4.3.9, < 5)
       sinatra (~> 2.0)
       terminal-table (~> 1.6)
 
@@ -27,7 +27,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (4.3.8)
+    puma (4.3.10)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-protection (2.0.7)
