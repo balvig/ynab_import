@@ -29,6 +29,8 @@ module YnabImport
         fixture_file = File.expand_path("test/fixtures/#{file}")
         result = Converter.new(fixture_file).convert
         CsvPreview.new(result).show
+      rescue Errno::ENOENT
+        skip "#{fixture_file} not found, skipping."
       end
   end
 end
