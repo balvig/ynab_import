@@ -20,6 +20,10 @@ module YnabImport
         def transaction
           -row[4].to_i
         end
+
+        def currency
+          :JPY
+        end
     end
   end
 end

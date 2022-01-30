@@ -40,7 +40,7 @@ module YnabImport
         end
 
         def transaction
-          raise "define in child class"
+          raise "define tranction _or_ outflow/inflow in child class"
         end
 
         def outflow
@@ -52,7 +52,7 @@ module YnabImport
         end
 
         def currency
-          raise "define in child class"
+          raise "define currency in child class"
         end
 
         def exchange(amount)

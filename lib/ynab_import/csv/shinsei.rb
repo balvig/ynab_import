@@ -1,8 +1,7 @@
 module YnabImport
   module Csv
     class Shinsei < Rewriter
-      ENCODING = "UTF-16"
-      COL_SEP = "\t"
+      ENCODING = "UTF-8"
 
       private
 
@@ -11,19 +10,19 @@ module YnabImport
         end
 
         def payee
-          row[2]
-        end
-
-        def memo
-          nil
+          row[1]
         end
 
         def outflow
-          row[3]
+          row[2]
         end
 
         def inflow
-          row[4]
+          row[3]
+        end
+
+        def currency
+          :JPY
         end
     end
   end

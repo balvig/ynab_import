@@ -4,10 +4,6 @@ require "support/csv_preview"
 module YnabImport
   class ConverterTest < Minitest::Test
     def test_shinsei
-      preview "590601000197645.csv"
-    end
-
-    def test_shinsei_new
       preview "JPY_CH_20220129220422.csv"
     end
 
@@ -15,23 +11,11 @@ module YnabImport
       preview "20191107_UseHistoryReference.csv"
     end
 
-    def test_uc
-      preview "UC_1712.csv"
-    end
-
-    def test_vpass
-      preview "201908.csv"
-    end
-
     def test_nordea
-      preview "poster.csv"
-    end
-
-    def test_nordea_new
       preview "Visa-dankort-konto 8965937189 - 2021.10.06 20.43.csv"
     end
 
-    def test_nordea_new_variation
+    def test_nordea_variation
       preview "Grundkonto 0727399453 - 2021.10.29 15.05.csv"
     end
 

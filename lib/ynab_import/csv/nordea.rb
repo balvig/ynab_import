@@ -1,6 +1,7 @@
 module YnabImport
   module Csv
     class Nordea < Rewriter
+      ENCODING = "UTF-8"
       COL_SEP = ";"
 
       private
@@ -10,15 +11,15 @@ module YnabImport
         end
 
         def payee
-          row[1].to_s.gsub('Dankort-nota ','').gsub(/[\s\d]+$/,'').squeeze(' ')
+          row[5].to_s.gsub('Dankort-nota ','').gsub(/[\s\d]+$/,'').squeeze(' ')
         end
 
         def memo
-          row[3].to_s + " DKK"
+          nil
         end
 
         def transaction
-          row[3].to_s.delete('.').gsub(',','.').to_f
+          row[1].sub(",", ".").to_f
         end
 
         def currency

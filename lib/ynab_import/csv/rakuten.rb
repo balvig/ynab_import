@@ -16,6 +16,10 @@ module YnabImport
         def transaction
           row[1].to_i
         end
+
+        def currency
+          :JPY
+        end
     end
   end
 end
