@@ -19,6 +19,10 @@ module YnabImport
       preview "Grundkonto 0727399453 - 2021.10.29 15.05.csv"
     end
 
+    def test_nordea_rate_pension
+      preview "Ratepension-pulje 0717886992 - 2022.02.01 20.06.csv"
+    end
+
     def test_rakuten
       preview "RB-torihikimeisai (1).csv"
     end
