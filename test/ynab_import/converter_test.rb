@@ -12,19 +12,19 @@ module YnabImport
     end
 
     def test_nordea
-      preview "Visa-dankort-konto 8965937189 - 2021.10.06 20.43.csv"
+      preview "Visa-dankort-konto.csv"
     end
 
     def test_nordea_variation
-      preview "Grundkonto 0727399453 - 2021.10.29 15.05.csv"
+      preview "Grundkonto.csv"
     end
 
     def test_nordea_rate_pension
-      preview "Ratepension-pulje 0717886992 - 2022.02.01 20.06.csv"
+      preview "Ratepension-pulje.csv"
     end
 
     def test_rakuten
-      preview "RB-torihikimeisai (1).csv"
+      preview "RB-torihikimeisai.csv"
     end
 
     private
