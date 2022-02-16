@@ -59,6 +59,8 @@ module YnabImport
           return amount if currency == target_currency
 
           Money.from_amount(amount.to_f, currency).exchange_to(target_currency)
+        rescue => e
+          puts "Warning: Failed to convert currency: #{e.message}"
         end
     end
   end
