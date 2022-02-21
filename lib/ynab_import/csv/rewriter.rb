@@ -36,7 +36,17 @@ module YnabImport
         end
 
         def memo
-          nil
+          if foreign_currency?
+            original_value_memo
+          end
+        end
+
+        def original_value_memo
+          if outflow.to_i > 0
+            "-#{outflow} #{currency}"
+          else
+            "+#{inflow} #{currency}"
+          end
         end
 
         def transaction
@@ -56,11 +66,15 @@ module YnabImport
         end
 
         def exchange(amount)
-          return amount if currency == target_currency
+          return amount unless foreign_currency?
 
           Money.from_amount(amount.to_f, currency).exchange_to(target_currency)
         rescue => e
           puts "Warning: Failed to convert currency: #{e.message}"
+        end
+
+        def foreign_currency?
+          currency != target_currency
         end
     end
   end
