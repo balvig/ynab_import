@@ -8,7 +8,7 @@ module YnabImport
       ENCODING = "ISO-8859-1"
       COL_SEP = ","
 
-      def initialize(row, target_currency: :DKK)
+      def initialize(row, target_currency: :JPY)
         @row = row
         @target_currency = target_currency
       end
