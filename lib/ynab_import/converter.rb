@@ -5,6 +5,7 @@ require "ynab_import/csv/rewriter"
 require "ynab_import/csv/nordea"
 require "ynab_import/csv/epos"
 require "ynab_import/csv/rakuten"
+require "ynab_import/csv/rakuten_debit"
 require "ynab_import/csv/shinsei"
 
 module YnabImport
@@ -50,6 +51,10 @@ module YnabImport
           Csv::Shinsei
         elsif input_path.include?("RB-torihikimeisai")
           Csv::Rakuten
+        elsif input_path.include?("RB-debitmeisai")
+          Csv::RakutenDebit
+        else
+          raise "No rewriter found for #{input_path}"
         end
       end
   end

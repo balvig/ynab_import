@@ -27,6 +27,10 @@ module YnabImport
       preview "RB-torihikimeisai.csv"
     end
 
+    def test_rakuten_debit
+      preview "RB-debitmeisai.csv"
+    end
+
     private
 
       def preview(file)
