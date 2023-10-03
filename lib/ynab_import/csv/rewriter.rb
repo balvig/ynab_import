@@ -66,6 +66,7 @@ module YnabImport
         end
 
         def exchange(amount)
+          return amount unless YnabImport.convert_currencies?
           return amount unless foreign_currency?
 
           Money.from_amount(amount.to_f, currency).exchange_to(target_currency)
