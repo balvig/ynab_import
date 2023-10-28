@@ -43,7 +43,7 @@ module YnabImport
       end
 
       def rewriter
-        if %w(konto pension).any? { |name| input_path.include?(name) }
+        if %w(konto pension Opsparing).any? { |name| input_path.include?(name) }
           Csv::Nordea
         elsif input_path.include? "UseHistoryReference"
           Csv::Epos
