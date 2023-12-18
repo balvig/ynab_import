@@ -13,6 +13,10 @@ module YnabImport
           row[1]
         end
 
+        def memo
+          row[8]
+        end
+
         def transaction
           -row[2].to_i
         end
