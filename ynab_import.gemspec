@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "money", "~> 6.11.0"
   spec.add_dependency "money-open-exchange-rates"
-  spec.add_dependency "puma", ">= 4.3.9", "< 5"
+  spec.add_dependency "puma", ">= 4.3.9", "< 6"
   spec.add_dependency "sinatra", "~> 2.0"
 end
