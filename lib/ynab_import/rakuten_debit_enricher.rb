@@ -2,7 +2,7 @@ require "ynab"
 require "csv"
 
 module YnabImport
-  class Enricher
+  class RakutenDebitEnricher
     def initialize(input_path:, ynab_access_token:)
       @input_path = input_path
       @access_token = ynab_access_token

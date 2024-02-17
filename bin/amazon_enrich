@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "ynab_import/rakuten_debit_enricher"
+require "ynab_import/amazon_enricher"
 
-YnabImport::RakutenDebitEnricher.new(
+YnabImport::AmazonEnricher.new(
   ynab_access_token: ENV.fetch("YNAB_ACCESS_TOKEN"),
   input_path: ENV.fetch("FILE")
 ).enrich
