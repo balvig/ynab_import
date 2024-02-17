@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "ynab_import/enricher"
+
+YnabImport::Enricher.new(
+  ynab_access_token: ENV.fetch("YNAB_ACCESS_TOKEN"),
+  input_path: ENV.fetch("FILE")
+).enrich
